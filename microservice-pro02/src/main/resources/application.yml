@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: microservice-pro02  
+  config:
+    import: "optional:configserver:http://localhost:9999"  # Imports configurations from a config server
+
+logging:
+  level:
+    com.dvd.micro: DEBUG  
+
+  file:
+    path: myFile.log  

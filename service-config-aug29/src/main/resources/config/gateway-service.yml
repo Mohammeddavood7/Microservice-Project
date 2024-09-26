@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id: microservice-pro01
+          uri: lb://microservice-pro01
+          predicates:
+            - Path=/department/**
+        - id: microservice-pro02
+          uri: lb://microservice-pro02
+          predicates:
+            - Path=/employee/**
+
+  eureka:
+    client:
+      fetch-registry: true
+      register-with-eureka: true
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8888
